@@ -15,6 +15,7 @@ div.container div{
 
 #box1 {
     background-color: goldenrod;
+   
     /* Dois Valores: o primento serve para o top e o bottom e segundo para o left e right*/
     padding: 40px 30px;
 }
