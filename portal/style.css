@@ -1,6 +1,17 @@
 /* @import , quanto existem , devem ser o primeiro item de um arquivo css*/
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
+/* Definição de variáveis */
+:root{
+    --cor-primaria: #550000;
+    --cor-secundaria: #ff7f2a;
+    --cor-fundo-clara: #dddddd;
+    --cor-fundo-escura: #bbbbbb;
+    --cor-texto-claro: #ffffff;
+    --cor-sombra:rgba(0,0,0,0.25);
+    --cor-texto-escura: #777777;
+}
+
 /* CSS reset*/
 *{ /* Todos os elementos*/
 padding: 0;
@@ -16,10 +27,27 @@ font-family: Consolas, 'Courier New',monospace ;*/
 
 /* Fampilia de fontes da web (webfonts)*/
 font-family: Raleway, Calibri, Arial, sans;
-
+font.size: 16px;
 }
+
+html{
+font.size: 16px;  /* tamanho de fonte padrão do documento*/
+}
+
+/*Cor de todos os links do site*/
+a{
+    color: var(--cor-primaria);
+    text-decoration: none;
+}
+
+a:hover{ /* Mouse passando sobre o link*/
+    color: var(--cor-secundaria);
+    text-decoration: underline; /* volta o sublinado*/
+}
+
 header{
-    background-color: #550000;
+    /*background-color: #550000;*/
+    background-color: var(--cor-primaria);
     padding: 10px 20px;
 }
 
@@ -29,7 +57,56 @@ nav ul li {
 }
 
 nav{
-    background-color:#ff7f2a; /*Cor de Fundo*/ 
+    background-color:var(--cor-secundaria); /*Cor de Fundo*/ 
     color: white; /* Cor de texto*/
 
 }
+#content{
+    background-color: var(--cor-fundo-clara);
+    padding: 20px;
+    display:flex; /* Este elemento e seus filhos usarão flexbox */
+    flex-direction:row; /* Os filhos ficarão em linha*/
+}
+
+section{
+    background-color: var(--cor-texto-claro);
+    padding: 10px;
+    margin-bottom: 20px;
+    /*Borda arredondadas*/
+    border-radius: 10px;
+    /*Sombra drop - down shadow*/
+    box-shadow:3px 3px 10px var(--cor-sombra); /*) rgba(0,0,0,0.25);*/
+    flex-grow: 1; /* 1 unidade de largura*/
+}
+
+#principal{
+    flex-grow: 3; /* 3 unidade de largura */
+}
+
+#secundario{
+    margin-left: 20px;
+    background-color: var(--cor-fundo-escura);    /* #bbbbbb;*/
+}
+
+section article{ /* article que estão dentro de uma section*/
+margin: 24px 0px; /* 8 px top/bottom  0px left/right */
+}
+
+section > h1{ /* Apenas os h1 que são filhos diretos de section*/ 
+    text-transform: uppercase; /* Deixar o texto em maiúscula*/
+    color: var(--cor-secundaria);
+}
+
+article > h1{ /* Só os h1 que são filhos diretos de article */
+    font-size: 1.5rem; /* 1.5x o tamanho da fonte do elemento raiz 
+    (html) */
+    margin-bottom: 6px;
+}
+article > h1 > a{
+    font-size: 1.5rem;
+}
+
+article > p{
+    color: var(--cor-texto-escura);
+}
+
