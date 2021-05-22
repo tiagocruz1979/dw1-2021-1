@@ -29,6 +29,9 @@ font-family: Consolas, 'Courier New',monospace ;*/
 /* Fampilia de fontes da web (webfonts)*/
 font-family: Raleway, Calibri, Arial, sans;
 font.size: 16px;
+
+/* Faz com que bordas e margens sejam consideradas no tamanho total do elemento */
+box-sizing: border-box;
 }
 
 html{
@@ -189,18 +192,21 @@ article > h2{
      width: 450px;
      margin-right: 24px;
      border-radius: 4px;
+     /* lagura máxima limitada a largura do pai */
+     max-width: 100%;
 
  }
  .foto-texto{
     display:flex; /* Este elemento e seus filhos usarão flexbox */
-    flex-direction:row; /* Os filhos ficarão em linha*/
+    flex-direction:row; /* Os filhos ficarão em linha, na horizontal*/
  }
 
  aside > article > img {
      display: block;
-     /* margin auto á equerda e à direita centraliza o elemento quanto este é display: block */
+     /* margin auto à equerda e à direita centraliza o elemento quanto este é display: block */
      margin: 0 auto;
      border-radius: 4px;
+    max-width: 100%;
 
  }
 
@@ -214,14 +220,15 @@ article > h2{
      margin-top: 6px;
     }
     
-    footer{
+footer{
         background-color: var(--cor-primaria);
         padding: 24px;
         color: #ffffff;
         display: flex;
         flex-direction: row;
         justify-content: space-around; /* Dá espaço automaticamente entre os itens de uma flex-box*/
-    }
+}
+
  footer a{
      color: #ffffff;
  }
@@ -241,3 +248,72 @@ footer li:last-child{
      height: 100%;
  }
 
+ /* Regras para larguras específicas de tela*/
+ @media screen and (max-width: 1020px){ /* breakpoint (quebra de linha )*/
+main{
+    width: 60%;
+}
+aside{
+    width: 40%;
+}
+
+.foto-texto{
+    flex-direction:column; /* Os filhos ficarão em coluna, na vertical*/
+ }
+
+ .destaque img{
+     margin-right: 0;
+     margin-bottom: 24px;
+ }
+
+ }
+
+ @media screen and (max-width: 800px){
+/*
+à fazer: Colocar o menu em um botão
+*/
+
+    #content{
+        flex-direction:column; /* Os filhos ficarão em coluna*/
+    }
+    main{
+        width: 100%;
+    }
+    aside{
+        margin-left: 0px;
+        width: 100%;
+    }
+
+    aside > article > h1{
+        text-align: center;
+    }
+
+    .destaque img{
+        /* centralizar a imagem */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    footer{
+        flex-direction: column;
+    }
+
+    footer > *{
+        margin-bottom: 12px;
+    }
+
+    footer ul li:first-child{
+        padding-left: 0;
+    }
+
+    footer address{
+        text-align: right;
+    }
+
+    @media screen and (max-width: 640px){
+        /* colocar o logo principal e os ícones de redes sociais em coluna
+        */
+    }
+
+
+ }
